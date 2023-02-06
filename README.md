@@ -1,2 +1,2 @@
-# My-neovim-settings
-personal neovim settings
+# This is my personal neovim configure
+* more details will coming soon
