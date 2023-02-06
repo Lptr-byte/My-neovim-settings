@@ -21,6 +21,7 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  
   -- My plugins here
   use 'folke/tokyonight.nvim' --Theme  
   use {
@@ -60,6 +61,27 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',  -- FileSearch
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+    --Translater
+    --
+    use "xiyaowong/nvim-transparent" --Transparent
+
+    use "neoclide/coc.nvim" --Install coc
+
+    --Markdown
+    use "godlygeek/tabular"
+    use "plasticboy/vim-markdown" --Markdown highlight
+
+    use "mzlogin/vim-markdown-toc" --Auto create content
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use "iamcco/mathjax-support-for-mkdp" --Make sure user can see math formula
+    
+
 
   
   if packer_bootstrap then

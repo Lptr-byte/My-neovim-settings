@@ -10,7 +10,7 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- 下面会用到这个函数
+--It will be used
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -26,7 +26,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping.abort(),  -- 取消补全，esc也可以退出
+    ['<C-e>'] = cmp.mapping.abort(),  --Cancel Insert, you can also use <ESC>
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
@@ -60,7 +60,7 @@ cmp.setup({
     }),
   }),
 
-  -- 这里重要
+  -- Import Part
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },

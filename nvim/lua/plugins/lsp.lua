@@ -9,7 +9,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-  -- 确保安装，根据需要填写
+  -- Make sure install, according you need to write
   ensure_installed = {
     "sumneko_lua",
   },
@@ -17,7 +17,24 @@ require("mason-lspconfig").setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+--Start server
 require("lspconfig").sumneko_lua.setup {
   capabilities = capabilities,
 }
 
+require("lspconfig").pyright.setup{
+    capabilities = capabilities,
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true
+            }
+        }
+    }
+}
+
+require("lspconfig").clangd.setup{
+    capabilities = capabilities,
+}
