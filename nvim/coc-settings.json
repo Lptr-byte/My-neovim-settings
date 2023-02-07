@@ -1,4 +1,7 @@
 {
+    "suggest.noselect":true,
+    "suggest.enablePreselect":false,
+
     "languageserver": {
         "clangd": {
             "command": "clangd",
